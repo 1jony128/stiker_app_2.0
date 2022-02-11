@@ -20,3 +20,5 @@ export const todoReducer = (state = initialState, action:ActionType):TodosState 
             return state
     }
 }
+
+export const getTodoAction = <GetTodosAction>(payload: ) => ({type: TodoActionTypes.GET_TODOS, })
