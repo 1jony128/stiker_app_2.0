@@ -3,19 +3,23 @@ export enum TodoActionTypes {
     GET_TODOS = "GET_TODOS",
     ADD_TODO = "ADD_TODO",
     DELETE_TODO = "DELETE_TODO",
-    UPDATE_TODO = "UPDATE_TODO"
+    UPDATE_TODO = "UPDATE_TODO",
+    OPEN_ADD_TODO = "OPEN_ADD_TODO",
 }
 
 export interface TodosState {
-    todos: TodoState[]
+    todos: TodoState[],
+    newTodo: boolean,
+    updateTodo: boolean
 }
 
-interface TodoState {
+export interface TodoState {
     content: string;
     description: string;
+    categories: string,
     id: number;
     parent_id?: number;
-    project_id: number;
+    project_id?: number;
     checked: boolean;
 }
 
@@ -36,5 +40,9 @@ interface UpgradeTodosAction {
     type: TodoActionTypes.UPDATE_TODO;
     payload: TodoState;
 }
+interface OpenAddTodosAction {
+    type: TodoActionTypes.OPEN_ADD_TODO;
+    payload: boolean;
+}
 
-export type ActionType = GetTodosAction | AddTodoAction | DeleteTodosAction | UpgradeTodosAction
+export type ActionType = GetTodosAction | AddTodoAction | DeleteTodosAction | UpgradeTodosAction | OpenAddTodosAction

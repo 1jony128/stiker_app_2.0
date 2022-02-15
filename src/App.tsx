@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
+import './accept/scss/app.scss'
 import {useSelector} from "react-redux";
+import Main from "./components/Main/Main";
 
 function App() {
 
-    const state = useSelector((state => state))
-    console.log(state)
+
   return (
     <div className="App">
-      hello!
+        <Main />
     </div>
   );
 }
