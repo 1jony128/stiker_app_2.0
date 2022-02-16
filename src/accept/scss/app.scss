@@ -1,3 +1,5 @@
+@import "variables";
+
 #root{
   background-color: #f8f4f4;
   font-family: "Roboto Light";
@@ -60,10 +62,30 @@
           padding-left: 6px;
           line-height: 10px;
           border-radius: 5px;
-          transition-duration: 0.5s;
+          transition-duration: 0.2s;
           align-items: center;
+          justify-content: space-between;
+          .icon{
+            display: none;
+          }
           &:hover{
             background: #eaeaea;
+            .icon{
+              display: block;
+              &:hover{
+                color: $hoverIcon;
+              }
+            }
+          }
+          .right{
+            display: flex;
+            align-items: center;
+            &.through {
+              p{
+                text-decoration: line-through;
+              }
+
+            }
           }
           .squared-four {
             position: relative;

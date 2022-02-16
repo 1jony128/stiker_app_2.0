@@ -1,16 +1,18 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ITodo} from "../TodoCreate/Fields";
 import {TodoState} from "../../../types/todo-type";
+import Todo from "./Todo";
+import {bgColors} from "../../../helpers/bgColors";
 
 interface ICategory {
     todos: TodoState[]
 }
 
-const Category: FC<ICategory> = ({todos, children}) => {
+const Category: FC<ICategory> = ({todos}) => {
     const [categories, setCategories] = useState<any[]>([])
 
     useEffect(() => {
-        if(todos.length > 0){
+        if(todos && todos.length > 0){
             let clone = JSON.parse(JSON.stringify(todos))
             clone = clone.map((todo: ITodo) => {
                 return todo.categories
@@ -19,19 +21,24 @@ const Category: FC<ICategory> = ({todos, children}) => {
             setCategories(clone)
         }
     }, [todos])
+
+
     return (
         <>
             {
-                categories && categories.map((header:string) => {
-                    // console.log(header)
+                categories && categories.map((header:string, index) => {
                     return (
-                        <div className={"cart"}>
-                            <h2>
-                                {header}
-                            </h2>
+                        <div key={header} className={"cart"} style={{background: bgColors[index]}}>
+                            <h2>{header}</h2>
                             <div className={"container"}>
                                 <div className="cart-items">
-                                    {children}
+                                    {
+                                        todos && todos.map((todo:TodoState) => {
+                                            if(todo.categories === header){
+                                                return <Todo key={todo.id} todo={todo}/>
+                                            }
+                                        })
+                                    }
                                 </div>
                             </div>
                         </div>)

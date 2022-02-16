@@ -6,15 +6,15 @@ interface ITodoList {
     todos: TodoState[]
 }
 const TodoList: FC<ITodoList> = ({todos}) => {
+
+    const todoCategory = () => {
+
+    }
+
+
     return (
         <div className={"carts-container"}>
-            <Category todos={todos}>
-                {
-                    todos && todos.map((todo:TodoState) => {
-                        return <Todo todo={todo}/>
-                    })
-                }
-            </Category>
+            <Category todos={todos} />
         </div>
     );
 };
