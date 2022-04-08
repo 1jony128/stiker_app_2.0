@@ -15,17 +15,20 @@ const TodoCreate = () => {
 
     const onCreate = () => {
         console.log(todo)
-        const newTodo: TodoState = {
-            id: Number((new Date()).getTime()),
-            content: todo.content,
-            checked: false,
-            description: todo.description,
-            categories: todo.categories,
-            parent_id: undefined,
-            project_id: 0
+        if((todo.content && todo.categories) != ""){
+            const newTodo: TodoState = {
+                id: Number((new Date()).getTime()),
+                content: todo.content,
+                checked: false,
+                description: todo.description,
+                categories: todo.categories,
+                parent_id: undefined,
+                project_id: 0
+            }
+            dispatch(addTodoAction(newTodo))
+            dispatch(openAddTodoAction(false))
         }
-        dispatch(addTodoAction(newTodo))
-        dispatch(openAddTodoAction(false))
+        
     }
 
     const onCLose = () => {
