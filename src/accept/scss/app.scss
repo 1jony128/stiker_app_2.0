@@ -1,259 +1,173 @@
 @import "variables";
 
-#root{
-  background-color: #f8f4f4;
-  font-family: "Segoe UI";
-}
-h2{
-    font-family: 'Roboto', sans-serif;
+a{
+    text-decoration: none;
 }
 
-.carts-container{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  .cart{
-    font-size: 14px;
-    width: 300px;
-    height: 300px;
-    background: #FFEF73;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    margin: 10px;
-    padding: 0 10px 10px 10px;
-    transition-duration: 1s;
-    &:hover{
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    .form-block{
-      margin-top: 10px;
-      .input-wrapper{
-        display: flex;
-        .input{
-          margin-left: 5px;
-          background: rgba(255, 255, 255, 0);
-          border: none;
-          border-bottom: 1px solid rgba(121, 121, 121, 0.68);
-          outline:none;
-          width: 94%;
-        }
-        .button{
-          cursor: pointer;
-          border-radius: 50%;
-          outline:none;
-          border-style: none;
-          font-size: 22px;
-          &:active{
-            border-style: none;
-            border: 1px solid rgba(121, 121, 121, 0.68);
-            background: rgba(220, 211, 211, 0);
-          }
-        }
-      }
-
-    }
-
-    .container{
-      height: 242px;
-      overflow: auto;
-      border-radius: 5px;
-      .cart-items{
-        padding: 10px;
-        background: #fff;
-        .cart-item{
-          display: flex;
-          cursor: pointer;
-          padding-left: 6px;
-          line-height: 10px;
-          border-radius: 5px;
-          transition-duration: 0.2s;
-          align-items: center;
-          justify-content: space-between;
-          .icon{
-            display: none;
-          }
-          &:hover{
-            background: #eaeaea;
-            .icon{
-              display: block;
-              &:hover{
-                color: $hoverIcon;
-              }
-            }
-          }
-          .right{
-            display: flex;
-            align-items: center;
-            &.through {
-              p{
-                text-decoration: line-through;
-              }
-
-            }
-          }
-          .squared-four {
-            position: relative;
-            margin-right: 9px;
-            label {
-              width: 20px;
-              height: 20px;
-              cursor: pointer;
-              position: absolute;
-              top: 0;
-              left: 0;
-              background: #fcfff4;
-              background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-              border-radius: 4px;
-              box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-              &:after {
-                content: '';
-                width: 9px;
-                height: 5px;
-                position: absolute;
-                top: 4px;
-                left: 4px;
-                border: 3px solid #333;
-                border-top: none;
-                border-right: none;
-                background: transparent;
-                opacity: 0;
-                transform: rotate(-45deg);
-              }
-              &:hover::after {
-                opacity: 0.5;
-              }
-            }
-            input[type=checkbox] {
-              visibility: hidden;
-              &:checked + label:after {
-                opacity: 1;
-              }
-            }
-          }
-        }
-      }
-    }
-
-
-
-  }
-}
-
-.main{
-  width: 100%;
-  height: 100%;
-  .todo-create{
-    display: flex;
-    margin: 100px auto;
-    width: 50%;
-    min-height: 100px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    background-color: #ffffff;
-    justify-content: center;
-    flex-direction: column;
+.wrapper{
     text-align: center;
-    .content{
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      flex-direction: column;
-      .input-wrapper{
+    margin: 0 auto;
+    width: 80%;
+
+    h1{
+        font-family: "Roboto";
+    }
+    .contacts{
         display: flex;
-        width: 80%;
-        margin: 15px auto;
-        text-align: center;
-        justify-content: flex-start;
-        flex-direction: column;
-        &.sub{
-          font-size: 14px;
-          flex-direction: row;
-          .input{
-            min-width: 100px;
-            width: 100%;
-            height: 30px;
-            margin-left: 5px;
-            background: rgba(255, 255, 255, 0);
-            border: none;
-            border-bottom: 1px solid rgba(121, 121, 121, 0.68);
-            outline:none;  
-            font-size: 14px;         
-          }
-          .button{
-            border: none;
-            background-color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-          }
-        }
-        .input{
-          min-width: 100px;
-          width: 100%;
-          height: 30px;
-          margin-left: 5px;
-          background: rgba(255, 255, 255, 0);
-          border: none;
-          border-bottom: 1px solid rgba(121, 121, 121, 0.68);
-          outline:none;
-          font-size: 18px;
-        }
-        .button-wrapper{
-          display: flex;
-          justify-content: flex-end;
-          margin-top: 5px;
-          .button{
-            width: 100px;
-          }
-        }
-        
-        .error{
-          color:green;
-          margin: 10px 5px;
-        }
-      }
-      .select-color{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 10px;
-        margin-bottom: 20px;
-          span{
-            border: 3px solid #cfcfcf;
-            width: 20px;
-            min-width: 20px;
-            height: 20px;
-            margin: 0 5px;
-            cursor: pointer;
-            border-radius: 50px;
-            &:hover{
-              transform: scale(2);
+        .list{
+            .panel_users{
+                .panel_wrapper{
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+                }
+
             }
-          }
-      }
-      .new-task{
-        display: flex;
-        justify-content: flex-start;
-        width: 70%;
-        margin: 15px auto;
-        border-bottom: 1px solid rgba(121, 121, 121, 0.68);
-        span {
-          padding-right: 10px;
+            .container{
+                margin: 0 auto;
+                width: 100%;
+                max-width: 600px;
+                .list_item{
+                    cursor: pointer;
+                    display: flex;
+                    width: 100%;
+                    height: 100px;
+                    box-sizing: border-box;
+                    text-align: left;
+                    padding: 8px 16px;
+                    border-radius: 2px;
+                    align-items: center;
+                    justify-content: space-between;
+                    min-width: 500px;
+                    .info{
+                        display: flex;
+                        align-items: center;
+                        .avatar{
+                            max-width: 60px;
+                            img{
+                                border-radius: 50%;
+                                width: 100%;
+                            }
+                        }
+            
+                        .text{
+                            margin-left: 25px;
+                            h3{
+                                margin: 0;
+                            }
+                            .key{
+                                font-weight: 800;
+                                padding-right: 10px;
+                            }
+                        }
+                    }
+                    
+        
+                    .tools{
+                        display: flex;
+                        height: 100%;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        
+                        
+                        .toolbox{
+                            display: none;               
+                            justify-content: flex-end;
+                        }
+                        .score{
+                            color: $colorStar;
+                        }
+                    }
+        
+                    &:hover{
+                        background-color: $hoverAvatar;
+                        .tools{    
+                            justify-content: space-between;           
+                            .toolbox{
+                                display: flex;
+                            }
+                        }
+                    }
+
+                    &.disabled {
+                        color: $colorDisabled;
+                        pointer-events: none;
+                    }
+                }
+                
+            }
         }
-      }
-
-      .error{
-        color:green;
-        text-align: right;
-        width: 89%;
-        margin: 0  5px 10px 5px;
-      }
-      
+    
+        .create-user{
+            margin: 0 auto;
+            width: 50%;
+            max-width: 600px;
+            .input_wrapper{
+                margin: 0 auto;
+                width: 100%;
+                margin-bottom: 15px;
+                button{
+                    margin-right: 10px;
+                }
+            }
+            .double_input_wrapper{
+                display: flex;
+                margin: 0 auto;
+                width: 100%;
+                margin-bottom: 15px;
+                & div {
+                    &:first-child{
+                        margin-right: 15px;
+                    }
+    
+                }
+            }
+            .double_button_wrapper{
+                display: flex;
+                margin: 0 auto;
+                width: 100%;
+                justify-content: space-evenly;
+            }
+        }
     }
-
-    .button {
-      width: auto;
-      margin: 10px;
-      &.right{
-        text-align: right;
-      }
+    
+    .login{
+        width: 50%;
+        max-width: 450px;
+        margin: 0 auto;
+        .input_wrapper{
+            margin: 0 auto;
+            width: 100%;
+            margin-bottom: 15px;
+            button{
+                margin-right: 10px;
+            }
+        }
     }
-  }
+    
+    .error{
+        color: red;
+    }
+}
+
+
+@media (max-width: 1100px)  {
+    .wrapper{
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+    
+        h1{
+            font-family: "Roboto";
+        }
+        .contacts{
+            display: flex;
+            flex-direction: column;
+            .create-user{
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    }
 }
